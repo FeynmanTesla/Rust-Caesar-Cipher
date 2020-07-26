@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated />
   </component>
@@ -12,7 +30,7 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0680f3c2-d817-4c61-bf96-de13c827fafe" name="Default Changelist" comment="">
+    <list default="true" id="0680f3c2-d817-4c61-bf96-de13c827fafe" name="Default Changelist" comment="marked up some errors to fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
@@ -42,10 +60,10 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
   </component>
-  <component name="RunManager" selected="Cargo Command.D A Jgnnq&quot;yqtnf">
-    <configuration name="D 1 Ifmmp!xpsme" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+  <component name="RunManager" selected="Cargo Command.D A Ifmmp xpsme">
+    <configuration name="D 1 Ifmmp xpsme" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
-      <option name="command" value="run D 1 Ifmmp!xpsme" />
+      <option name="command" value="run D 1 Ifmmp xpsme" />
       <option name="allFeatures" value="false" />
       <option name="nocapture" value="false" />
       <option name="emulateTerminal" value="false" />
@@ -56,9 +74,9 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="D 2 Jgnnq&quot;yqtnf" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+    <configuration name="D 2 Jgnnq yqtnf" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
-      <option name="command" value="run D 2 Jgnnq&quot;yqtnf" />
+      <option name="command" value="run D 2 Jgnnq yqtnf" />
       <option name="allFeatures" value="false" />
       <option name="nocapture" value="false" />
       <option name="emulateTerminal" value="false" />
@@ -69,9 +87,9 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="D A Ifmmp!xpsme" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+    <configuration name="D A Ifmmp xpsme" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
-      <option name="command" value="run D 1 Ifmmp!xpsme" />
+      <option name="command" value="run D A Ifmmp xpsme" />
       <option name="allFeatures" value="false" />
       <option name="nocapture" value="false" />
       <option name="emulateTerminal" value="false" />
@@ -82,9 +100,9 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="D A Jgnnq&quot;yqtnf" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+    <configuration name="D A Jgnnq yqtnf" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
-      <option name="command" value="run D 1 Jgnnq&quot;yqtnf" />
+      <option name="command" value="run D A Jgnnq yqtnf" />
       <option name="allFeatures" value="false" />
       <option name="nocapture" value="false" />
       <option name="emulateTerminal" value="false" />
@@ -124,10 +142,10 @@
     <list>
       <item itemvalue="Cargo Command.E 1 Hello world" />
       <item itemvalue="Cargo Command.E 2 Hello world" />
-      <item itemvalue="Cargo Command.D 1 Ifmmp!xpsme" />
-      <item itemvalue="Cargo Command.D 2 Jgnnq&quot;yqtnf" />
-      <item itemvalue="Cargo Command.D A Ifmmp!xpsme" />
-      <item itemvalue="Cargo Command.D A Jgnnq&quot;yqtnf" />
+      <item itemvalue="Cargo Command.D 1 Ifmmp xpsme" />
+      <item itemvalue="Cargo Command.D 2 Jgnnq yqtnf" />
+      <item itemvalue="Cargo Command.D A Ifmmp xpsme" />
+      <item itemvalue="Cargo Command.D A Jgnnq yqtnf" />
     </list>
   </component>
   <component name="RustProjectSettings">
@@ -140,30 +158,61 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595676423370</updated>
-      <workItem from="1595676424773" duration="16487000" />
+      <workItem from="1595676424773" duration="24093000" />
     </task>
+    <task id="LOCAL-00001" summary="marked up some errors to fix">
+      <created>1595770727572</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1595770727572</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="marked up some errors to fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="marked up some errors to fix" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="322" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595693574212">
+    <state x="0" y="322" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595778203399">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="0" y="322" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595693574212" />
-    <state width="1234" height="275" key="GridCell.Tab.0.bottom" timestamp="1595693954301">
+    <state x="0" y="322" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595778203399" />
+    <state width="1234" height="275" key="GridCell.Tab.0.bottom" timestamp="1595778234728">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="275" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595693954301" />
-    <state width="1234" height="275" key="GridCell.Tab.0.center" timestamp="1595693954301">
+    <state width="1234" height="275" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595778234728" />
+    <state width="1234" height="275" key="GridCell.Tab.0.center" timestamp="1595778234728">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="275" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595693954301" />
-    <state width="1234" height="275" key="GridCell.Tab.0.left" timestamp="1595693954301">
+    <state width="1234" height="275" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595778234728" />
+    <state width="1234" height="275" key="GridCell.Tab.0.left" timestamp="1595778234728">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="275" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595693954301" />
-    <state width="1234" height="275" key="GridCell.Tab.0.right" timestamp="1595693954301">
+    <state width="1234" height="275" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595778234728" />
+    <state width="1234" height="275" key="GridCell.Tab.0.right" timestamp="1595778234728">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="275" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595693954301" />
+    <state width="1234" height="275" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595778234728" />
+    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1595770733832">
+      <screen x="0" y="27" width="2560" height="1053" />
+    </state>
+    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595770733832" />
+    <state x="1583" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1595774784366">
+      <screen x="0" y="27" width="2560" height="1053" />
+    </state>
+    <state x="1583" y="259" width="672" height="678" key="search.everywhere.popup/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595774784366" />
   </component>
 </project>
