@@ -3,10 +3,12 @@ use rand::Rng;
 use std::fs::File;
 use std::io::{BufReader, BufRead};
 
+const ALPHABET_LOWER: [char; 26] = "abcdefghijklmnopqrstuvwxyz".chars().collect();
+const ALPHABET_UPPER: [char; 26] = "ABCDEFGIJKLMNOPQRSTUVWXYZ".chars().collect();
 const LETTERS_IN_ALPHABET: i32 = 26;
 const PASSABLE_PROPORTION_WORDS_IN_DICT: f32 = 0.9;
 
-// TODO: fix errors
+// TODO: fix errors: don't shift spaces; shift against alphabet not encoding values; allow double quotes; ensure auto decrypting doesnt just take first value
 // TODO: make unit tests
 // TODO: make frontend with GTK
 
