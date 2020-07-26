@@ -30,7 +30,7 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0680f3c2-d817-4c61-bf96-de13c827fafe" name="Default Changelist" comment="marked up some errors to fix">
+    <list default="true" id="0680f3c2-d817-4c61-bf96-de13c827fafe" name="Default Changelist" comment="made shifts work against alphabet not encoding values; allowed for non-alphabet values to be included;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
@@ -60,7 +60,7 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
   </component>
-  <component name="RunManager" selected="Cargo Command.D A Ifmmp xpsme">
+  <component name="RunManager" selected="Cargo Command.E 1 Hello world">
     <configuration name="D 1 Ifmmp xpsme" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run D 1 Ifmmp xpsme" />
@@ -150,6 +150,7 @@
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+    <option name="version" value="2" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -158,7 +159,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595676423370</updated>
-      <workItem from="1595676424773" duration="24093000" />
+      <workItem from="1595676424773" duration="24430000" />
+      <workItem from="1595796614388" duration="1199000" />
     </task>
     <task id="LOCAL-00001" summary="marked up some errors to fix">
       <created>1595770727572</created>
@@ -167,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595770727572</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="made shifts work against alphabet not encoding values; allowed for non-alphabet values to be included;">
+      <created>1595778460082</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1595778460082</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -180,36 +189,38 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="marked up some errors to fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="marked up some errors to fix" />
+    <MESSAGE value="made shifts work against alphabet not encoding values; allowed for non-alphabet values to be included;" />
+    <option name="LAST_COMMIT_MESSAGE" value="made shifts work against alphabet not encoding values; allowed for non-alphabet values to be included;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="322" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595778203399">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="0" y="322" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595778203399" />
-    <state width="1234" height="275" key="GridCell.Tab.0.bottom" timestamp="1595778234728">
+    <state width="1234" height="275" key="GridCell.Tab.0.bottom" timestamp="1595797740246">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="275" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595778234728" />
-    <state width="1234" height="275" key="GridCell.Tab.0.center" timestamp="1595778234728">
+    <state width="1234" height="275" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595797740246" />
+    <state width="1234" height="275" key="GridCell.Tab.0.center" timestamp="1595797740246">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="275" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595778234728" />
-    <state width="1234" height="275" key="GridCell.Tab.0.left" timestamp="1595778234728">
+    <state width="1234" height="275" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595797740246" />
+    <state width="1234" height="275" key="GridCell.Tab.0.left" timestamp="1595797740246">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="275" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595778234728" />
-    <state width="1234" height="275" key="GridCell.Tab.0.right" timestamp="1595778234728">
+    <state width="1234" height="275" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595797740246" />
+    <state width="1234" height="275" key="GridCell.Tab.0.right" timestamp="1595797740246">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="275" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595778234728" />
-    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1595770733832">
+    <state width="1234" height="275" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595797740246" />
+    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1595778461877">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595770733832" />
+    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595778461877" />
     <state x="1583" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1595774784366">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
