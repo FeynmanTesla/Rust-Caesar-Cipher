@@ -1,7 +1,10 @@
 use std::env;
-use rand::Rng;
 use std::fs::File;
-use std::io::{BufReader, BufRead};
+use std::io::{BufRead, BufReader};
+
+use druid::{AppLauncher, LocalizedString, PlatformError, Widget, WidgetExt, WindowDesc};
+use druid::widget::{Button, Checkbox, Flex, Label, Slider};
+use rand::Rng;
 
 static ALPHABET_LOWER: [char; 26] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -11,37 +14,88 @@ static LETTERS_IN_ALPHABET: i8 = 26;
 static PASSABLE_PROPORTION_WORDS_IN_DICT: f32 = 0.9;
 
 // TODO: make unit tests
-// TODO: make frontend with GTK
 
-fn main() {
-    let args: Vec<String> = env::args().collect();
+/**
+ * TODO: make a frontend; possible libraries:
+ * gtk - https://crates.io/crates/gtk
+ * orbtk - https://crates.io/crates/orbtk
+ * rust-pushrod - https://crates.io/crates/rust-pushrod
+ * conrod - https://crates.io/crates/conrod_core
+ * azul - https://crates.io/crates/azul
+ * druid - https://crates.io/crates/druid
+*/
 
-    let encrypting: bool = &args[1] == "E";
-    let shift : &String = &args[2];
-    let raw_text : &String = &args[3..].join(" ");
-
-    // args: <E for encrypt, D for decrypt> <x num to shift encrypting or 'A' for auto random num> <src text>
-
-    // TODO: add improved error handling, inc. usage feedback
-
-    if encrypting {
-        if shift == "A" {
-            encrypt(gen_shift(), raw_text);
-        }
-        else {
-            encrypt((&shift).parse::<i8>().unwrap() as i8, raw_text);
-        }
-    }
-
-    else {
-        if shift == "A" {
-            auto_decrypt(raw_text);
-        }
-        else {
-            decrypt(Some((&shift).parse::<i8>().unwrap() as i8), raw_text);
-        }
-    }
+struct AppState {
+    encrypting: bool,
+    shift_size_automatic: bool,
+    shift_size: i8,
+    input: String,
+    output: String,
 }
+
+fn main() -> Result<(), PlatformError> {
+    let main_window = WindowDesc::new(ui_builder).title("Rust Caesar Cipher");
+    let encrypting = true;
+    AppLauncher::with_window(main_window)
+        .use_simple_logger()
+        .launch(encrypting)
+}
+
+fn ui_builder() -> impl Widget<bool> {
+    // The label text will be computed dynamically based on the current locale and count
+    // let text =
+    //     LocalizedString::new("hello-counter").with_arg("count", |data: &u32, _env| (*data).into());
+    // let label = Label::new("Rust Caesar Cipher").padding(5.0).center();
+    // let button = Button::new("increment")
+    //     .on_click(|_ctx, data, _env| *data += 1)
+    //     .padding(5.0);
+
+    let title = Label::new("Rust Caesar Cipher").with_text_size(40.0);
+    let first_row = Flex::row().with_child(title).padding(20.0);
+
+    let choose_mode_label = Label::new("Choose mode:").with_text_size(20.0);
+    let encrypt_checkbox = Checkbox::new("Encrypt").on_click(|_ctx, encrypting, _env| *encrypting = true);
+    let decrypt_checkbox = Checkbox::new("Decrypt").on_click(|_ctx, encrypting, _env| *encrypting = false);
+    let second_row = Flex::row().with_child(choose_mode_label).with_child(encrypt_checkbox).with_child(decrypt_checkbox).padding(10.0);
+
+    let shift_size_label = Label::new("Shift size:").with_text_size(20.0);
+    let automatic_checkbox = Checkbox::new("Automatic").on_click(|_ctx, encrypting, _env| *encrypting = true);
+    let manual_checkbox = Checkbox::new("Manual").on_click(|_ctx, encrypting, _env| *encrypting = false);
+    // let shift_size_slider = Slider::new();
+    let third_row = Flex::row().with_child(shift_size_label).with_child(automatic_checkbox).with_child(manual_checkbox).padding(10.0);
+
+    Flex::column().with_child(first_row).with_child(second_row).with_child(third_row)
+}
+
+// fn main() {
+//     let args: Vec<String> = env::args().collect();
+//
+//     let encrypting: bool = &args[1] == "E";
+//     let shift : &String = &args[2];
+//     let raw_text : &String = &args[3..].join(" ");
+//
+//     // args: <E for encrypt, D for decrypt> <x num to shift encrypting or 'A' for auto random num> <src text>
+//
+//     // TODO: add improved error handling, inc. usage feedback
+//
+//     if encrypting {
+//         if shift == "A" {
+//             encrypt(gen_shift(), raw_text);
+//         }
+//         else {
+//             encrypt((&shift).parse::<i8>().unwrap() as i8, raw_text);
+//         }
+//     }
+//
+//     else {
+//         if shift == "A" {
+//             auto_decrypt(raw_text);
+//         }
+//         else {
+//             decrypt(Some((&shift).parse::<i8>().unwrap() as i8), raw_text);
+//         }
+//     }
+// }
 
 fn encrypt(shift_value: i8, plaintext: &String) {
     let ciphertext: String = shift_text(plaintext, shift_value, true).unwrap();
@@ -65,7 +119,7 @@ fn gen_shift() -> i8 {
 
 fn auto_decrypt(ciphertext: &String) {
     let dictionary_words: Vec<String> = get_dictionary_words();
-    for shift in 1 .. LETTERS_IN_ALPHABET {
+    for shift in 1..LETTERS_IN_ALPHABET {
         if try_decrypt(shift, ciphertext, &dictionary_words) { return; }
     }
     println!("Failed to automatically decrypt the ciphertext \"{}\".", ciphertext);
@@ -145,7 +199,7 @@ fn shift_char(start: &char, mut shift: i8, right: bool) -> Option<char> {
         shift *= -1;
     }
 
-    let usize_index: Option<usize> = alphabet.iter().position(|char : &char| char == start);
+    let usize_index: Option<usize> = alphabet.iter().position(|char: &char| char == start);
 
     match usize_index {
         None => {

@@ -32,6 +32,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0680f3c2-d817-4c61-bf96-de13c827fafe" name="Default Changelist" comment="made shifts work against alphabet not encoding values; allowed for non-alphabet values to be included;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +62,7 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
   </component>
-  <component name="RunManager" selected="Cargo.D 1 Ifmmp xpsme">
+  <component name="RunManager" selected="Cargo.Run caesar_cipher">
     <configuration name="D 1 Ifmmp xpsme" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run D 1 Ifmmp xpsme" />
@@ -133,6 +135,23 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Run caesar_cipher" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="run --package caesar_cipher --bin caesar_cipher" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Cargo.D 1 Ifmmp xpsme" />
       <item itemvalue="Cargo.D 2 Jgnnq yqtnf" />
@@ -140,12 +159,19 @@
       <item itemvalue="Cargo.D A Jgnnq yqtnf" />
       <item itemvalue="Cargo.E 1 Hello world" />
       <item itemvalue="Cargo.E 2 Hello world" />
+      <item itemvalue="Cargo.Run caesar_cipher" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo.Run caesar_cipher" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
     <option name="version" value="2" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="0680f3c2-d817-4c61-bf96-de13c827fafe" name="Default Changelist" comment="" />
@@ -195,22 +221,22 @@
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="0" y="322" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595778203399" />
-    <state width="1234" height="275" key="GridCell.Tab.0.bottom" timestamp="1595797740246">
+    <state width="1340" height="946" key="GridCell.Tab.0.bottom" timestamp="1600841826803">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="275" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595797740246" />
-    <state width="1234" height="275" key="GridCell.Tab.0.center" timestamp="1595797740246">
+    <state width="1340" height="946" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600841826803" />
+    <state width="1340" height="946" key="GridCell.Tab.0.center" timestamp="1600841826803">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="275" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595797740246" />
-    <state width="1234" height="275" key="GridCell.Tab.0.left" timestamp="1595797740246">
+    <state width="1340" height="946" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600841826803" />
+    <state width="1340" height="946" key="GridCell.Tab.0.left" timestamp="1600841826803">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="275" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595797740246" />
-    <state width="1234" height="275" key="GridCell.Tab.0.right" timestamp="1595797740246">
+    <state width="1340" height="946" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600841826803" />
+    <state width="1340" height="946" key="GridCell.Tab.0.right" timestamp="1600841826803">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="275" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1595797740246" />
+    <state width="1340" height="946" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600841826803" />
     <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1595778461877">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
