@@ -13,11 +13,10 @@ static ALPHABET_UPPER: [char; 26] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'
 static LETTERS_IN_ALPHABET: i8 = 26;
 static PASSABLE_PROPORTION_WORDS_IN_DICT: f32 = 0.9;
 
-// TODO: improve UX of shift size and mode selection by separating them out
-// TODO: bigger input size in frontend
+// TODO: bigger input textbox size in frontend
 // TODO: better spacing and padding in frontend
-// TODO: add improved error handling, inc. usage feedback
-// TODO: separate into 2 source files; one for logic and another for forntned
+// TODO: add improved error handling, inc. usage feedback (? does this still apply with frontend)
+// TODO: separate into 2 source files; one for logic and another for frontend
 // TODO: make unit tests
 
 #[derive(Clone, Data, Lens)]
@@ -60,34 +59,36 @@ fn ui_builder() -> impl Widget<AppState> {
     let choose_mode_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", if data.encrypting { "Encrypt" } else { "Decrypt" })).with_text_size(15.0);
     let second_row: Flex<AppState> = Flex::row().with_child(choose_mode_title_label).with_child(choose_mode_value_label).with_child(change_mode_button).with_spacer(20.0);
 
-    let shift_size_title_label: Label<AppState> = Label::new("Shift:").with_text_size(20.0);
+    let shift_mode_title_label: Label<AppState> = Label::new("Shift mode:").with_text_size(20.0);
     let change_shift_mode_button: ControllerHost<Button<AppState>, Click<AppState>> = Button::new("Change").on_click(|_ctx, data: &mut AppState, _env| {
         data.shift_size_automatic = !data.shift_size_automatic
     });
-    let choose_shift_mode_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", if data.shift_size_automatic { "Automatic" } else { "Manual" })).with_text_size(15.0);
-    let choose_mode_title_label: Label<AppState> = Label::new("Size:").with_text_size(20.0);
+    let shift_mode_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", if data.shift_size_automatic { "Automatic" } else { "Manual" })).with_text_size(15.0);
+    let third_row: Flex<AppState> = Flex::row().with_child(shift_mode_title_label).with_child(change_shift_mode_button).with_child(shift_mode_value_label).with_spacer(20.0);
+
+    let shift_size_title_label: Label<AppState> = Label::new("Shift size:").with_text_size(20.0);
     let shift_size_slider = Slider::new().with_range(1.0, 26.0).lens(AppState::shift_size);
     let shift_size_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", data.shift_size as i64)).with_text_size(15.0);
-    let third_row: Flex<AppState> = Flex::row().with_child(shift_size_title_label).with_child(change_shift_mode_button).with_child(choose_shift_mode_value_label).with_child(choose_mode_title_label).with_child(shift_size_slider).with_child(shift_size_value_label).with_spacer(20.0);
+    let fourth_row: Flex<AppState> = Flex::row().with_child(shift_size_title_label).with_child(shift_size_slider).with_child(shift_size_value_label).with_spacer(20.0);
 
     let input_title_label: Label<AppState> = Label::new("Input:").with_text_size(20.0);
     let input_value_text_box = TextBox::new()
         .with_placeholder("Enter input here.")
         // .fix_width(TEXT_BOX_WIDTH)
         .lens(AppState::input);
-    let fourth_row: Flex<AppState> = Flex::row().with_child(input_title_label).with_child(input_value_text_box).with_spacer(20.0);
+    let fifth_row: Flex<AppState> = Flex::row().with_child(input_title_label).with_child(input_value_text_box).with_spacer(20.0);
 
     let submit_button = Button::new("Submit")
         .on_click(|_ctx, state: &mut AppState, _env| {
             state.output = find_output(state);
         });
-    let fifth_row: Flex<AppState> = Flex::row().with_child(submit_button).with_spacer(20.0);
+    let sixth_row: Flex<AppState> = Flex::row().with_child(submit_button).with_spacer(20.0);
 
     let output_title_label: Label<AppState> = Label::new("Output:").with_text_size(20.0);
     let output_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", data.output)).with_text_size(15.0);
-    let sixth_row: Flex<AppState> = Flex::row().with_child(output_title_label).with_child(output_value_label).with_spacer(20.0);
+    let seventh_row: Flex<AppState> = Flex::row().with_child(output_title_label).with_child(output_value_label).with_spacer(20.0);
 
-    let col: Flex<AppState> = Flex::column().with_child(first_row).with_child(second_row).with_child(third_row).with_child(fourth_row).with_child(fifth_row).with_child(sixth_row).with_flex_spacer(40.0);
+    let col: Flex<AppState> = Flex::column().with_child(first_row).with_child(second_row).with_child(third_row).with_child(fourth_row).with_child(fifth_row).with_child(sixth_row).with_child(seventh_row).with_flex_spacer(40.0);
     col
 }
 
