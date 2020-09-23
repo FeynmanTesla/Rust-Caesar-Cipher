@@ -1,10 +1,9 @@
 use std::borrow::Borrow;
-use std::env;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-use druid::{AppLauncher, Data, Lens, LocalizedString, PlatformError, Widget, WidgetExt, WindowDesc};
-use druid::widget::{Button, Checkbox, Click, ControllerHost, Flex, Label, RadioGroup, Slider};
+use druid::{AppLauncher, Data, Lens, PlatformError, Widget, WidgetExt, WindowDesc};
+use druid::widget::{Button, Checkbox, Flex, Label, Slider, TextBox};
 use rand::Rng;
 
 static ALPHABET_LOWER: [char; 26] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
@@ -49,8 +48,8 @@ fn get_initial_state() -> AppState {
         encrypting: false,
         shift_size_automatic: false,
         shift_size: 10.0,
-        input: "Input".to_string(),
-        output: "Output".to_string(),
+        input: "".to_string(),
+        output: "".to_string(),
     }
 }
 
@@ -71,14 +70,17 @@ fn ui_builder() -> impl Widget<AppState> {
     let third_row: Flex<AppState> = Flex::row().with_child(shift_size_title_label).with_child(automatic_checkbox).with_child(manual_checkbox).with_child(shift_size_slider).with_child(shift_size_value_label).with_spacer(20.0);
 
     let input_title_label: Label<AppState> = Label::new("Input:").with_text_size(20.0);
-    let input_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", data.input)).with_text_size(15.0);
-    let fourth_row: Flex<AppState> = Flex::row().with_child(input_title_label).with_child(input_value_label).with_spacer(20.0);
+    let input_value_text_box = TextBox::new()
+        .with_placeholder("Enter input here.")
+        // .fix_width(TEXT_BOX_WIDTH)
+        .lens(AppState::input);
+    let fourth_row: Flex<AppState> = Flex::row().with_child(input_title_label).with_child(input_value_text_box).with_spacer(20.0);
 
-    let submit_button = Button::new("Start slow increment")
-        .on_click(|ctx, state: &mut AppState, _env| {
+    let submit_button = Button::new("Submit")
+        .on_click(|_ctx, state: &mut AppState, _env| {
             state.output = find_output(state);
         });
-    let fifth_row: Flex<AppState> = Flex::row().with_spacer(20.0);
+    let fifth_row: Flex<AppState> = Flex::row().with_child(submit_button).with_spacer(20.0);
 
     let output_title_label: Label<AppState> = Label::new("Output:").with_text_size(20.0);
     let output_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", data.output)).with_text_size(15.0);
