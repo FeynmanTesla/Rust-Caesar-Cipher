@@ -30,9 +30,10 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0680f3c2-d817-4c61-bf96-de13c827fafe" name="Default Changelist" comment="made input text box bigger">
-      <change afterPath="$PROJECT_DIR$/src/logic.rs" afterDir="false" />
+    <list default="true" id="0680f3c2-d817-4c61-bf96-de13c827fafe" name="Default Changelist" comment="separated frontend and state and logic into 2 separate modules">
+      <change afterPath="$PROJECT_DIR$/src/state/logic.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +68,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/state" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
@@ -106,7 +112,7 @@
       <updated>1595676423370</updated>
       <workItem from="1595676424773" duration="24430000" />
       <workItem from="1595796614388" duration="1199000" />
-      <workItem from="1600898253623" duration="2067000" />
+      <workItem from="1600898253623" duration="2589000" />
     </task>
     <task id="LOCAL-00001" summary="marked up some errors to fix">
       <created>1595770727572</created>
@@ -185,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600898505165</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="separated frontend and state and logic into 2 separate modules">
+      <created>1600900365275</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1600900365275</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,41 +225,42 @@
     <MESSAGE value="updated TODOs" />
     <MESSAGE value="separated shift mode and size selection into different rows" />
     <MESSAGE value="made input text box bigger" />
-    <option name="LAST_COMMIT_MESSAGE" value="made input text box bigger" />
+    <MESSAGE value="separated frontend and state and logic into 2 separate modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="separated frontend and state and logic into 2 separate modules" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="322" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600898423532">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="0" y="322" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600898423532" />
-    <state x="1013" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600900045997">
+    <state x="1013" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600900650070">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="1013" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600900045997" />
-    <state width="2514" height="435" key="GridCell.Tab.0.bottom" timestamp="1600900198493">
+    <state x="1013" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600900650070" />
+    <state width="2514" height="435" key="GridCell.Tab.0.bottom" timestamp="1600900835438">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="435" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600900198493" />
+    <state width="2514" height="435" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600900835438" />
     <state width="2560" height="988" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881859" />
-    <state width="2514" height="435" key="GridCell.Tab.0.center" timestamp="1600900198493">
+    <state width="2514" height="435" key="GridCell.Tab.0.center" timestamp="1600900835437">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="435" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600900198493" />
+    <state width="2514" height="435" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600900835437" />
     <state width="2560" height="988" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881859" />
-    <state width="2514" height="435" key="GridCell.Tab.0.left" timestamp="1600900198493">
+    <state width="2514" height="435" key="GridCell.Tab.0.left" timestamp="1600900835437">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="435" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600900198493" />
+    <state width="2514" height="435" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600900835437" />
     <state width="2560" height="988" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881858" />
-    <state width="2514" height="435" key="GridCell.Tab.0.right" timestamp="1600900198493">
+    <state width="2514" height="435" key="GridCell.Tab.0.right" timestamp="1600900835438">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="435" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600900198493" />
+    <state width="2514" height="435" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600900835438" />
     <state width="2560" height="988" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881859" />
-    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600898507890">
+    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600900366666">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600898507890" />
+    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600900366666" />
     <state x="1583" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1595774784366">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>

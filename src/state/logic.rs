@@ -2,7 +2,6 @@ use std::borrow::Borrow;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-use druid::{Data, Lens};
 use rand::Rng;
 
 static ALPHABET_LOWER: [char; 26] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
@@ -12,69 +11,18 @@ static ALPHABET_UPPER: [char; 26] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'
 static LETTERS_IN_ALPHABET: i8 = 26;
 static PASSABLE_PROPORTION_WORDS_IN_DICT: f32 = 0.9;
 
-#[derive(Clone, Data, Lens)]
-pub(crate) struct AppState {
-    encrypting: bool,
-    shift_size_automatic: bool,
-    shift_size: f64,
-    input: String,
-    output: String,
-}
-
-// TODO: separate logic and state stuff
-
-pub(crate) fn get_initial_state() -> AppState {
-    AppState {
-        encrypting: false,
-        shift_size_automatic: false,
-        shift_size: 10.0,
-        input: "".to_string(),
-        output: "".to_string(),
-    }
-}
-
-impl AppState {
-    pub(crate) fn get_encrypting(&self) -> bool {
-        self.encrypting
-    }
-
-    pub(crate) fn set_encrypting(&mut self, val: bool) {
-        self.encrypting = val;
-    }
-
-    pub(crate) fn get_shift_size_automatic(&self) -> bool {
-        self.shift_size_automatic
-    }
-
-    pub(crate) fn set_shift_size_automatic(&mut self, val: bool) {
-        self.shift_size_automatic = val;
-    }
-
-    pub(crate) fn get_shift_size(&self) -> f64 {
-        self.shift_size
-    }
-
-    pub(crate) fn get_output(&self) -> &str {
-        &*self.output
-    }
-
-    pub(crate) fn update_output(&mut self) {
-        self.output = find_output(self);
-    }
-}
-
-pub(crate) fn find_output(state: &mut AppState) -> String {
-    if state.encrypting {
-        if state.shift_size_automatic {
-            encrypt(gen_shift(), state.input.borrow())
+pub(crate) fn find_output(encrypting: bool, shift_size_automatic: bool, shift_size: f64, input: String) -> String {
+    if encrypting {
+        if shift_size_automatic {
+            encrypt(gen_shift(), input.borrow())
         } else {
-            encrypt(state.shift_size as i8, state.input.borrow())
+            encrypt(shift_size as i8, input.borrow())
         }
     } else {
-        if state.shift_size_automatic {
-            auto_decrypt(state.input.borrow())
+        if shift_size_automatic {
+            auto_decrypt(input.borrow())
         } else {
-            decrypt(Some(state.shift_size as i8), state.input.borrow())
+            decrypt(Some(shift_size as i8), input.borrow())
         }
     }
 }
