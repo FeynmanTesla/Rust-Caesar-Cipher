@@ -3,7 +3,7 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 
 use druid::{AppLauncher, Data, Lens, PlatformError, Widget, WidgetExt, WindowDesc};
-use druid::widget::{Button, Checkbox, Flex, Label, Slider, TextBox};
+use druid::widget::{Button, Checkbox, Click, ControllerHost, Flex, Label, Slider, TextBox};
 use rand::Rng;
 
 static ALPHABET_LOWER: [char; 26] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
@@ -57,10 +57,12 @@ fn ui_builder() -> impl Widget<AppState> {
     let title: Label<AppState> = Label::new("Rust Caesar Cipher").with_text_size(40.0);
     let first_row: Flex<AppState> = Flex::row().with_child(title).with_spacer(20.0);
 
-    let choose_mode_label: Label<AppState> = Label::new("Mode:").with_text_size(20.0);
-    let encrypt_checkbox = Checkbox::new("Encrypt").lens(AppState::encrypting);
-    let decrypt_checkbox = Checkbox::new("Decrypt").lens(AppState::encrypting);
-    let second_row: Flex<AppState> = Flex::row().with_child(choose_mode_label).with_child(encrypt_checkbox).with_child(decrypt_checkbox).with_spacer(20.0);
+    let choose_mode_title_label: Label<AppState> = Label::new("Mode:").with_text_size(20.0);
+    let change_mode_button: ControllerHost<Button<AppState>, Click<AppState>> = Button::new("Change").on_click(|_ctx, data: &mut AppState, _env| {
+        data.encrypting = !data.encrypting
+    });
+    let choose_mode_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", if data.encrypting { "Encrypt" } else { "Decrypt" })).with_text_size(15.0);
+    let second_row: Flex<AppState> = Flex::row().with_child(choose_mode_title_label).with_child(choose_mode_value_label).with_child(change_mode_button).with_spacer(20.0);
 
     let shift_size_title_label: Label<AppState> = Label::new("Shift:").with_text_size(20.0);
     let automatic_checkbox = Checkbox::new("Automatic").lens(AppState::shift_size_automatic);
@@ -86,7 +88,7 @@ fn ui_builder() -> impl Widget<AppState> {
     let output_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", data.output)).with_text_size(15.0);
     let sixth_row: Flex<AppState> = Flex::row().with_child(output_title_label).with_child(output_value_label).with_spacer(20.0);
 
-    let col: Flex<AppState> = Flex::column().with_child(first_row).with_child(second_row).with_child(third_row).with_child(fourth_row).with_child(fifth_row).with_child(sixth_row);
+    let col: Flex<AppState> = Flex::column().with_child(first_row).with_child(second_row).with_child(third_row).with_child(fourth_row).with_child(fifth_row).with_child(sixth_row).with_flex_spacer(40.0);
     col
 }
 
@@ -105,6 +107,10 @@ fn find_output(state: &mut AppState) -> String {
         }
     }
 }
+
+//TODO: select auto or manual shift size from front end
+//TODO: bigger input size in frontend
+//TODO: better spacing and padding in frontend
 
 // fn main() {
 //     let args: Vec<String> = env::args().collect();
