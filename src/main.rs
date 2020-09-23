@@ -65,11 +65,14 @@ fn ui_builder() -> impl Widget<AppState> {
     let second_row: Flex<AppState> = Flex::row().with_child(choose_mode_title_label).with_child(choose_mode_value_label).with_child(change_mode_button).with_spacer(20.0);
 
     let shift_size_title_label: Label<AppState> = Label::new("Shift:").with_text_size(20.0);
-    let automatic_checkbox = Checkbox::new("Automatic").lens(AppState::shift_size_automatic);
-    let manual_checkbox = Checkbox::new("Manual").lens(AppState::shift_size_automatic);
+    let change_shift_mode_button: ControllerHost<Button<AppState>, Click<AppState>> = Button::new("Change").on_click(|_ctx, data: &mut AppState, _env| {
+        data.shift_size_automatic = !data.shift_size_automatic
+    });
+    let choose_shift_mode_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", if data.shift_size_automatic { "Automatic" } else { "Manual" })).with_text_size(15.0);
+    let choose_mode_title_label: Label<AppState> = Label::new("Size:").with_text_size(20.0);
     let shift_size_slider = Slider::new().with_range(1.0, 26.0).lens(AppState::shift_size);
     let shift_size_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", data.shift_size as i64)).with_text_size(15.0);
-    let third_row: Flex<AppState> = Flex::row().with_child(shift_size_title_label).with_child(automatic_checkbox).with_child(manual_checkbox).with_child(shift_size_slider).with_child(shift_size_value_label).with_spacer(20.0);
+    let third_row: Flex<AppState> = Flex::row().with_child(shift_size_title_label).with_child(change_shift_mode_button).with_child(choose_shift_mode_value_label).with_child(choose_mode_title_label).with_child(shift_size_slider).with_child(shift_size_value_label).with_spacer(20.0);
 
     let input_title_label: Label<AppState> = Label::new("Input:").with_text_size(20.0);
     let input_value_text_box = TextBox::new()
@@ -108,7 +111,6 @@ fn find_output(state: &mut AppState) -> String {
     }
 }
 
-//TODO: select auto or manual shift size from front end
 //TODO: bigger input size in frontend
 //TODO: better spacing and padding in frontend
 
