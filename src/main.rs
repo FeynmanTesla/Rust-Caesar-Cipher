@@ -13,7 +13,11 @@ static ALPHABET_UPPER: [char; 26] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'
 static LETTERS_IN_ALPHABET: i8 = 26;
 static PASSABLE_PROPORTION_WORDS_IN_DICT: f32 = 0.9;
 
-// TODO: bigger input textbox size in frontend
+static WINDOW_WIDTH: f64 = 1500.0;
+static WINDOW_HEIGHT: f64 = 1500.0;
+static INPUT_BOX_WIDTH: f64 = 1000.0;
+static INPUT_BOX_HEIGHT: f64 = 400.0;
+
 // TODO: better spacing and padding in frontend
 // TODO: add improved error handling, inc. usage feedback (? does this still apply with frontend)
 // TODO: separate into 2 source files; one for logic and another for frontend
@@ -29,7 +33,7 @@ struct AppState {
 }
 
 fn main() -> Result<(), PlatformError> {
-    let main_window = WindowDesc::new(ui_builder).title("Rust Caesar Cipher");
+    let main_window = WindowDesc::new(ui_builder).title("Rust Caesar Cipher").window_size((WINDOW_WIDTH, WINDOW_HEIGHT));
 
     let app_state: AppState = get_initial_state();
 
@@ -74,7 +78,8 @@ fn ui_builder() -> impl Widget<AppState> {
     let input_title_label: Label<AppState> = Label::new("Input:").with_text_size(20.0);
     let input_value_text_box = TextBox::new()
         .with_placeholder("Enter input here.")
-        // .fix_width(TEXT_BOX_WIDTH)
+        .fix_width(INPUT_BOX_WIDTH)
+        .fix_height(INPUT_BOX_HEIGHT)
         .lens(AppState::input);
     let fifth_row: Flex<AppState> = Flex::row().with_child(input_title_label).with_child(input_value_text_box).with_spacer(20.0);
 

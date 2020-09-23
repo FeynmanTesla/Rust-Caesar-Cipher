@@ -30,7 +30,7 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0680f3c2-d817-4c61-bf96-de13c827fafe" name="Default Changelist" comment="updated TODOs">
+    <list default="true" id="0680f3c2-d817-4c61-bf96-de13c827fafe" name="Default Changelist" comment="separated shift mode and size selection into different rows">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
@@ -60,77 +60,10 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
   </component>
-  <component name="RunManager" selected="Cargo.Run caesar_cipher">
-    <configuration name="D 1 Ifmmp xpsme" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="channel" value="DEFAULT" />
-      <option name="command" value="run D 1 Ifmmp xpsme" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="backtrace" value="SHORT" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
+  <component name="RunManager">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="D 2 Jgnnq yqtnf" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="channel" value="DEFAULT" />
-      <option name="command" value="run D 2 Jgnnq yqtnf" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="backtrace" value="SHORT" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="D A Ifmmp xpsme" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="channel" value="DEFAULT" />
-      <option name="command" value="run D A Ifmmp xpsme" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="backtrace" value="SHORT" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="D A Jgnnq yqtnf" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="channel" value="DEFAULT" />
-      <option name="command" value="run D A Jgnnq yqtnf" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="backtrace" value="SHORT" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="E 1 Hello world" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="channel" value="DEFAULT" />
-      <option name="command" value="run E 1 Hello world" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="backtrace" value="SHORT" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="E 2 Hello world" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="channel" value="DEFAULT" />
-      <option name="command" value="run E 2 Hello world" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="backtrace" value="SHORT" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="Run caesar_cipher" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
@@ -145,20 +78,6 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Cargo.D 1 Ifmmp xpsme" />
-      <item itemvalue="Cargo.D 2 Jgnnq yqtnf" />
-      <item itemvalue="Cargo.D A Ifmmp xpsme" />
-      <item itemvalue="Cargo.D A Jgnnq yqtnf" />
-      <item itemvalue="Cargo.E 1 Hello world" />
-      <item itemvalue="Cargo.E 2 Hello world" />
-      <item itemvalue="Cargo.Run caesar_cipher" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Cargo.Run caesar_cipher" />
@@ -179,6 +98,7 @@
       <updated>1595676423370</updated>
       <workItem from="1595676424773" duration="24430000" />
       <workItem from="1595796614388" duration="1199000" />
+      <workItem from="1600898253623" duration="175000" />
     </task>
     <task id="LOCAL-00001" summary="marked up some errors to fix">
       <created>1595770727572</created>
@@ -243,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600897050330</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="separated shift mode and size selection into different rows">
+      <created>1600897415314</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1600897415314</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,37 +195,38 @@
     <MESSAGE value="allowed user to set encrypting/decrypting mode from frontend" />
     <MESSAGE value="allowed user to set manual/auto shift size selection mode from frontend" />
     <MESSAGE value="updated TODOs" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated TODOs" />
+    <MESSAGE value="separated shift mode and size selection into different rows" />
+    <option name="LAST_COMMIT_MESSAGE" value="separated shift mode and size selection into different rows" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="322" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600891506197">
+    <state x="0" y="322" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600898423532">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="0" y="322" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600891506197" />
-    <state width="2514" height="479" key="GridCell.Tab.0.bottom" timestamp="1600897256895">
+    <state x="0" y="322" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600898423532" />
+    <state width="2514" height="435" key="GridCell.Tab.0.bottom" timestamp="1600898426251">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="479" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600897256895" />
+    <state width="2514" height="435" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600898426251" />
     <state width="2560" height="988" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881859" />
-    <state width="2514" height="479" key="GridCell.Tab.0.center" timestamp="1600897256895">
+    <state width="2514" height="435" key="GridCell.Tab.0.center" timestamp="1600898426251">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="479" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600897256895" />
+    <state width="2514" height="435" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600898426251" />
     <state width="2560" height="988" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881859" />
-    <state width="2514" height="479" key="GridCell.Tab.0.left" timestamp="1600897256895">
+    <state width="2514" height="435" key="GridCell.Tab.0.left" timestamp="1600898426251">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="479" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600897256895" />
+    <state width="2514" height="435" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600898426251" />
     <state width="2560" height="988" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881858" />
-    <state width="2514" height="479" key="GridCell.Tab.0.right" timestamp="1600897256895">
+    <state width="2514" height="435" key="GridCell.Tab.0.right" timestamp="1600898426251">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="479" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600897256895" />
+    <state width="2514" height="435" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600898426251" />
     <state width="2560" height="988" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881859" />
-    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600897051535">
+    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600897416703">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600897051535" />
+    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600897416703" />
     <state x="1583" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1595774784366">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
