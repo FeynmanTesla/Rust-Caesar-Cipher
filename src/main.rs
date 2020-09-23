@@ -1,3 +1,4 @@
+use std::borrow::Borrow;
 use std::env;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
@@ -48,8 +49,8 @@ fn get_initial_state() -> AppState {
         encrypting: false,
         shift_size_automatic: false,
         shift_size: 10.0,
-        input: "".to_string(),
-        output: "".to_string(),
+        input: "Input".to_string(),
+        output: "Output".to_string(),
     }
 }
 
@@ -57,19 +58,50 @@ fn ui_builder() -> impl Widget<AppState> {
     let title: Label<AppState> = Label::new("Rust Caesar Cipher").with_text_size(40.0);
     let first_row: Flex<AppState> = Flex::row().with_child(title).with_spacer(20.0);
 
-    let choose_mode_label: Label<AppState> = Label::new("Choose mode:").with_text_size(20.0);
+    let choose_mode_label: Label<AppState> = Label::new("Mode:").with_text_size(20.0);
     let encrypt_checkbox = Checkbox::new("Encrypt").lens(AppState::encrypting);
     let decrypt_checkbox = Checkbox::new("Decrypt").lens(AppState::encrypting);
     let second_row: Flex<AppState> = Flex::row().with_child(choose_mode_label).with_child(encrypt_checkbox).with_child(decrypt_checkbox).with_spacer(20.0);
 
-    let shift_size_label: Label<AppState> = Label::new("Shift size:").with_text_size(20.0);
+    let shift_size_title_label: Label<AppState> = Label::new("Shift:").with_text_size(20.0);
     let automatic_checkbox = Checkbox::new("Automatic").lens(AppState::shift_size_automatic);
     let manual_checkbox = Checkbox::new("Manual").lens(AppState::shift_size_automatic);
     let shift_size_slider = Slider::new().with_range(1.0, 26.0).lens(AppState::shift_size);
-    let third_row: Flex<AppState> = Flex::row().with_child(shift_size_label).with_child(automatic_checkbox).with_child(manual_checkbox).with_spacer(20.0);
+    let shift_size_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", data.shift_size as i64)).with_text_size(15.0);
+    let third_row: Flex<AppState> = Flex::row().with_child(shift_size_title_label).with_child(automatic_checkbox).with_child(manual_checkbox).with_child(shift_size_slider).with_child(shift_size_value_label).with_spacer(20.0);
 
-    let col: Flex<AppState> = Flex::column().with_child(first_row).with_child(second_row).with_child(third_row);
+    let input_title_label: Label<AppState> = Label::new("Input:").with_text_size(20.0);
+    let input_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", data.input)).with_text_size(15.0);
+    let fourth_row: Flex<AppState> = Flex::row().with_child(input_title_label).with_child(input_value_label).with_spacer(20.0);
+
+    let submit_button = Button::new("Start slow increment")
+        .on_click(|ctx, state: &mut AppState, _env| {
+            state.output = find_output(state);
+        });
+    let fifth_row: Flex<AppState> = Flex::row().with_spacer(20.0);
+
+    let output_title_label: Label<AppState> = Label::new("Output:").with_text_size(20.0);
+    let output_value_label: Label<AppState> = Label::new(|data: &AppState, _env: &_| format!("{}", data.output)).with_text_size(15.0);
+    let sixth_row: Flex<AppState> = Flex::row().with_child(output_title_label).with_child(output_value_label).with_spacer(20.0);
+
+    let col: Flex<AppState> = Flex::column().with_child(first_row).with_child(second_row).with_child(third_row).with_child(fourth_row).with_child(fifth_row).with_child(sixth_row);
     col
+}
+
+fn find_output(state: &mut AppState) -> String {
+    if state.encrypting {
+        if state.shift_size_automatic {
+            encrypt(gen_shift(), state.input.borrow())
+        } else {
+            encrypt(state.shift_size as i8, state.input.borrow())
+        }
+    } else {
+        if state.shift_size_automatic {
+            auto_decrypt(state.input.borrow())
+        } else {
+            decrypt(Some(state.shift_size as i8), state.input.borrow())
+        }
+    }
 }
 
 // fn main() {
@@ -102,17 +134,17 @@ fn ui_builder() -> impl Widget<AppState> {
 //     }
 // }
 
-fn encrypt(shift_value: i8, plaintext: &String) {
+fn encrypt(shift_value: i8, plaintext: &String) -> String {
     let ciphertext: String = shift_text(plaintext, shift_value, true).unwrap();
-    println!("For the plaintext \"{}\", given a shift of {}, the Caesar ciphertext is \"{}\".", plaintext, shift_value, ciphertext);
+    format!("For the plaintext \"{}\", given a shift of {}, the Caesar ciphertext is \"{}\".", plaintext, shift_value, ciphertext)
 }
 
-fn decrypt(shift_value: Option<i8>, ciphertext: &String) {
+fn decrypt(shift_value: Option<i8>, ciphertext: &String) -> String {
     match shift_value {
         None => decrypt(Some(gen_shift()), ciphertext),
         Some(shift_value) => {
             let plaintext: String = shift_text(ciphertext, shift_value, false).unwrap();
-            println!("For the ciphertext \"{}\", reversing a Caesar cipher shift of {}, the plaintext is \"{}\".", ciphertext, shift_value, plaintext);
+            format!("For the ciphertext \"{}\", reversing a Caesar cipher shift of {}, the plaintext is \"{}\".", ciphertext, shift_value, plaintext)
         }
     }
 }
@@ -122,15 +154,20 @@ fn gen_shift() -> i8 {
     rng.gen_range(1, LETTERS_IN_ALPHABET - 1)
 }
 
-fn auto_decrypt(ciphertext: &String) {
+fn auto_decrypt(ciphertext: &String) -> String {
     let dictionary_words: Vec<String> = get_dictionary_words();
     for shift in 1..LETTERS_IN_ALPHABET {
-        if try_decrypt(shift, ciphertext, &dictionary_words) { return; }
+        match try_decrypt(shift, ciphertext, &dictionary_words) {
+            Some(result) => {
+                return result;
+            }
+            _ => {}
+        }
     }
-    println!("Failed to automatically decrypt the ciphertext \"{}\".", ciphertext);
+    format!("Failed to automatically decrypt the ciphertext \"{}\".", ciphertext)
 }
 
-fn try_decrypt(shift_value: i8, ciphertext: &String, dictionary_words: &Vec<String>) -> bool {
+fn try_decrypt(shift_value: i8, ciphertext: &String, dictionary_words: &Vec<String>) -> Option<String> {
     let possible_plaintext: String = shift_text(ciphertext, shift_value, false).unwrap();
 
     let words: Vec<String> = possible_plaintext.split(" ").map(|s: &str| String::from(s)).collect();
@@ -143,10 +180,11 @@ fn try_decrypt(shift_value: i8, ciphertext: &String, dictionary_words: &Vec<Stri
     let is_passable_text: bool = words_in_dict as f32 / words.len() as f32 >= PASSABLE_PROPORTION_WORDS_IN_DICT;
 
     if is_passable_text {
-        println!("For the ciphertext \"{}\", reversing a Caesar cipher shift of {}, the plaintext is \"{}\".", ciphertext, shift_value, possible_plaintext);
+        let res: String = format!("For the ciphertext \"{}\", reversing a Caesar cipher shift of {}, the plaintext is \"{}\".", ciphertext, shift_value, possible_plaintext);
+        return Some(res);
     }
 
-    is_passable_text
+    None
 }
 
 fn get_dictionary_words() -> Vec<String> {
