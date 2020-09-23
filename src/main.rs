@@ -3,7 +3,7 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 
 use druid::{AppLauncher, Data, Lens, PlatformError, Widget, WidgetExt, WindowDesc};
-use druid::widget::{Button, Checkbox, Click, ControllerHost, Flex, Label, Slider, TextBox};
+use druid::widget::{Button, Click, ControllerHost, Flex, Label, Slider, TextBox};
 use rand::Rng;
 
 static ALPHABET_LOWER: [char; 26] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
@@ -13,17 +13,13 @@ static ALPHABET_UPPER: [char; 26] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'
 static LETTERS_IN_ALPHABET: i8 = 26;
 static PASSABLE_PROPORTION_WORDS_IN_DICT: f32 = 0.9;
 
+// TODO: improve UX of shift size and mode selection by separating them out
+// TODO: bigger input size in frontend
+// TODO: better spacing and padding in frontend
+// TODO: add improved error handling, inc. usage feedback
+// TODO: separate into 2 source files; one for logic and another for forntned
 // TODO: make unit tests
 
-/**
- * TODO: make a frontend; possible libraries:
- * gtk - https://crates.io/crates/gtk
- * orbtk - https://crates.io/crates/orbtk
- * rust-pushrod - https://crates.io/crates/rust-pushrod
- * conrod - https://crates.io/crates/conrod_core
- * azul - https://crates.io/crates/azul
- * druid - https://crates.io/crates/druid
-*/
 #[derive(Clone, Data, Lens)]
 struct AppState {
     encrypting: bool,
@@ -110,39 +106,6 @@ fn find_output(state: &mut AppState) -> String {
         }
     }
 }
-
-//TODO: bigger input size in frontend
-//TODO: better spacing and padding in frontend
-
-// fn main() {
-//     let args: Vec<String> = env::args().collect();
-//
-//     let encrypting: bool = &args[1] == "E";
-//     let shift : &String = &args[2];
-//     let raw_text : &String = &args[3..].join(" ");
-//
-//     // args: <E for encrypt, D for decrypt> <x num to shift encrypting or 'A' for auto random num> <src text>
-//
-//     // TODO: add improved error handling, inc. usage feedback
-//
-//     if encrypting {
-//         if shift == "A" {
-//             encrypt(gen_shift(), raw_text);
-//         }
-//         else {
-//             encrypt((&shift).parse::<i8>().unwrap() as i8, raw_text);
-//         }
-//     }
-//
-//     else {
-//         if shift == "A" {
-//             auto_decrypt(raw_text);
-//         }
-//         else {
-//             decrypt(Some((&shift).parse::<i8>().unwrap() as i8), raw_text);
-//         }
-//     }
-// }
 
 fn encrypt(shift_value: i8, plaintext: &String) -> String {
     let ciphertext: String = shift_text(plaintext, shift_value, true).unwrap();
