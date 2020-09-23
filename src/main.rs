@@ -2,8 +2,8 @@ use std::env;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-use druid::{AppLauncher, LocalizedString, PlatformError, Widget, WidgetExt, WindowDesc};
-use druid::widget::{Button, Checkbox, Flex, Label, Slider};
+use druid::{AppLauncher, Data, Lens, LocalizedString, PlatformError, Widget, WidgetExt, WindowDesc};
+use druid::widget::{Button, Checkbox, Click, ControllerHost, Flex, Label, RadioGroup, Slider};
 use rand::Rng;
 
 static ALPHABET_LOWER: [char; 26] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
@@ -24,47 +24,52 @@ static PASSABLE_PROPORTION_WORDS_IN_DICT: f32 = 0.9;
  * azul - https://crates.io/crates/azul
  * druid - https://crates.io/crates/druid
 */
-
+#[derive(Clone, Data, Lens)]
 struct AppState {
     encrypting: bool,
     shift_size_automatic: bool,
-    shift_size: i8,
+    shift_size: f64,
     input: String,
     output: String,
 }
 
 fn main() -> Result<(), PlatformError> {
     let main_window = WindowDesc::new(ui_builder).title("Rust Caesar Cipher");
-    let encrypting = true;
+
+    let app_state: AppState = get_initial_state();
+
     AppLauncher::with_window(main_window)
         .use_simple_logger()
-        .launch(encrypting)
+        .launch(app_state)
 }
 
-fn ui_builder() -> impl Widget<bool> {
-    // The label text will be computed dynamically based on the current locale and count
-    // let text =
-    //     LocalizedString::new("hello-counter").with_arg("count", |data: &u32, _env| (*data).into());
-    // let label = Label::new("Rust Caesar Cipher").padding(5.0).center();
-    // let button = Button::new("increment")
-    //     .on_click(|_ctx, data, _env| *data += 1)
-    //     .padding(5.0);
+fn get_initial_state() -> AppState {
+    AppState {
+        encrypting: false,
+        shift_size_automatic: false,
+        shift_size: 10.0,
+        input: "".to_string(),
+        output: "".to_string(),
+    }
+}
 
-    let title = Label::new("Rust Caesar Cipher").with_text_size(40.0);
-    let first_row = Flex::row().with_child(title).padding(20.0);
+fn ui_builder() -> impl Widget<AppState> {
+    let title: Label<AppState> = Label::new("Rust Caesar Cipher").with_text_size(40.0);
+    let first_row: Flex<AppState> = Flex::row().with_child(title).with_spacer(20.0);
 
-    let choose_mode_label = Label::new("Choose mode:").with_text_size(20.0);
-    let encrypt_checkbox = Checkbox::new("Encrypt").on_click(|_ctx, encrypting, _env| *encrypting = true);
-    let decrypt_checkbox = Checkbox::new("Decrypt").on_click(|_ctx, encrypting, _env| *encrypting = false);
-    let second_row = Flex::row().with_child(choose_mode_label).with_child(encrypt_checkbox).with_child(decrypt_checkbox).padding(10.0);
+    let choose_mode_label: Label<AppState> = Label::new("Choose mode:").with_text_size(20.0);
+    let encrypt_checkbox = Checkbox::new("Encrypt").lens(AppState::encrypting);
+    let decrypt_checkbox = Checkbox::new("Decrypt").lens(AppState::encrypting);
+    let second_row: Flex<AppState> = Flex::row().with_child(choose_mode_label).with_child(encrypt_checkbox).with_child(decrypt_checkbox).with_spacer(20.0);
 
-    let shift_size_label = Label::new("Shift size:").with_text_size(20.0);
-    let automatic_checkbox = Checkbox::new("Automatic").on_click(|_ctx, encrypting, _env| *encrypting = true);
-    let manual_checkbox = Checkbox::new("Manual").on_click(|_ctx, encrypting, _env| *encrypting = false);
-    // let shift_size_slider = Slider::new();
-    let third_row = Flex::row().with_child(shift_size_label).with_child(automatic_checkbox).with_child(manual_checkbox).padding(10.0);
+    let shift_size_label: Label<AppState> = Label::new("Shift size:").with_text_size(20.0);
+    let automatic_checkbox = Checkbox::new("Automatic").lens(AppState::shift_size_automatic);
+    let manual_checkbox = Checkbox::new("Manual").lens(AppState::shift_size_automatic);
+    let shift_size_slider = Slider::new().with_range(1.0, 26.0).lens(AppState::shift_size);
+    let third_row: Flex<AppState> = Flex::row().with_child(shift_size_label).with_child(automatic_checkbox).with_child(manual_checkbox).with_spacer(20.0);
 
-    Flex::column().with_child(first_row).with_child(second_row).with_child(third_row)
+    let col: Flex<AppState> = Flex::column().with_child(first_row).with_child(second_row).with_child(third_row);
+    col
 }
 
 // fn main() {
