@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" sodipodi:docname="ui_design.svg" inkscape:version="1.0 (6e3e5246a0, 2020-05-07)" id="svg8" version="1.1" viewBox="0 0 508 285.75001" height="1080" width="1920">
+  <defs id="defs2">
+    <rect id="rect1158" height="21.248703" width="91.355988" y="168.84045" x="210.7001"/>
+    <rect id="rect1061" height="28.417961" width="37.046429" y="50.988927" x="276.53115"/>
+    <rect id="rect47" height="23.694735" width="100.84585" y="34.705551" x="10.000883"/>
+    <rect id="rect12" height="25.593761" width="222.46272" y="2.8432267" x="127.1894"/>
+    <rect x="127.1894" y="2.8432267" width="222.46272" height="25.593761" id="rect12-8"/>
+    <rect x="127.1894" y="2.8432267" width="222.46272" height="25.593761" id="rect25"/>
+    <rect x="10.000883" y="34.705551" width="100.84585" height="23.694735" id="rect47-9"/>
+    <rect x="10.000883" y="34.705551" width="100.84585" height="23.694735" id="rect900"/>
+    <rect id="rect47-9-3" height="23.694735" width="100.84585" y="34.705551" x="10.000883"/>
+    <rect id="rect929" height="23.694735" width="100.84585" y="34.705551" x="10.000883"/>
+    <rect x="10.000883" y="34.705551" width="100.84585" height="23.694735" id="rect47-5"/>
+    <rect x="10.000883" y="34.705551" width="100.84585" height="23.694735" id="rect963"/>
+    <rect id="rect47-9-1" height="23.694735" width="100.84585" y="34.705551" x="10.000883"/>
+    <rect id="rect992" height="23.694735" width="100.84585" y="34.705551" x="10.000883"/>
+    <rect x="276.53116" y="50.988926" width="37.046429" height="28.417961" id="rect1061-3"/>
+    <rect x="276.53116" y="50.988926" width="37.046429" height="28.417961" id="rect1074"/>
+    <rect x="276.53116" y="50.988926" width="37.046429" height="28.417961" id="rect1061-4"/>
+    <rect x="276.53116" y="50.988926" width="37.046429" height="28.417961" id="rect1103"/>
+    <rect id="rect47-5-4" height="23.694735" width="100.84585" y="34.705551" x="10.000883"/>
+    <rect id="rect1131" height="23.694735" width="100.84585" y="34.705551" x="10.000883"/>
+    <rect x="10.000883" y="34.705551" width="100.84585" height="23.694735" id="rect47-5-4-7"/>
+    <rect x="10.000883" y="34.705551" width="100.84585" height="23.694735" id="rect1171"/>
+  </defs>
+  <sodipodi:namedview inkscape:window-maximized="1" inkscape:window-y="27" inkscape:window-x="0" inkscape:window-height="1016" inkscape:window-width="2560" inkscape:showpageshadow="false" borderlayer="true" units="px" showgrid="false" inkscape:document-rotation="0" inkscape:current-layer="layer1" inkscape:document-units="px" inkscape:cy="562.89057" inkscape:cx="1102.8789" inkscape:zoom="0.7712963" inkscape:pageshadow="2" inkscape:pageopacity="0.0" borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff" id="base"/>
+  <metadata id="metadata5">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:title/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g id="layer1" inkscape:groupmode="layer" inkscape:label="Layer 1">
+    <text transform="matrix(1.6112091,0,0,1.6112091,-34.595524,-2.9685548)" style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect12);fill:#000000;fill-opacity:1;stroke:none;" id="text10" xml:space="preserve"><tspan x="127.18945" y="12.20749"><tspan>Rust Caesar Cipher</tspan></tspan></text>
+    <text style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect47);fill:#000000;fill-opacity:1;stroke:none;" id="text45" xml:space="preserve"><tspan x="10" y="44.068818"><tspan>Choose mode:</tspan></tspan></text>
+    <rect y="32.174519" x="174.13892" height="9.260417" width="9.260417" id="rect51" style="fill:none;fill-rule:evenodd;stroke-width:0.79375001;stroke:#000000;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"/>
+    <rect style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.79375;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="rect51-0" width="9.260417" height="9.260417" x="174.08463" y="44.844006"/>
+    <text transform="translate(178.94293,-5.0393707)" xml:space="preserve" id="text45-6" style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect47-9);fill:#000000;fill-opacity:1;stroke:none;"><tspan x="10" y="44.068818"><tspan>Encrypt</tspan></tspan></text>
+    <text id="text952" y="53.369522" x="189.48935" style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583" xml:space="preserve"><tspan style="stroke-width:0.264583" y="53.369522" x="189.48935" id="tspan950" sodipodi:role="line">Decrypt</tspan></text>
+    <text transform="translate(0.60887321,31.84437)" xml:space="preserve" id="text45-61" style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect47-5);fill:#000000;fill-opacity:1;stroke:none;"><tspan x="10" y="44.068818"><tspan>Shift size:</tspan></tspan></text>
+    <rect style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.79375;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="rect51-5" width="9.260417" height="9.260417" x="173.47354" y="67.128967"/>
+    <rect y="79.798447" x="173.41925" height="9.260417" width="9.260417" id="rect51-0-9" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.79375;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+    <text style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect47-9-1);fill:#000000;fill-opacity:1;stroke:none;" id="text45-6-8" xml:space="preserve" transform="translate(178.27756,29.915069)"><tspan x="10" y="44.068818"><tspan>Automatic</tspan></tspan></text>
+    <text xml:space="preserve" style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583" x="188.82397" y="88.323967" id="text952-4"><tspan sodipodi:role="line" id="tspan950-8" x="188.82397" y="88.323967" style="stroke-width:0.264583">Manual</tspan></text>
+    <path id="path1025" d="m 291.88218,78.677372 190.13194,1.071002" style="fill:none;stroke:#000000;stroke-width:1.05833335;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"/>
+    <circle r="2.6458335" cy="78.446663" cx="293.50946" id="path1027" style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.788166;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+    <circle r="2.6458335" style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.788165;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="path1027-1" cx="481.90256" cy="79.897423"/>
+    <circle r="3.96875" cy="78.923927" cx="352.58392" id="path1027-1-0" style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.52916668;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+    <text transform="translate(14.808513,17.870839)" style="font-style:normal;font-weight:normal;font-size:5.64444px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect1061);fill:#000000;fill-opacity:1;stroke:none;" id="text1059" xml:space="preserve"><tspan x="276.53125" y="55.982288"><tspan style="shape-inside:url(#rect1061)">1</tspan></tspan></text>
+    <text transform="translate(201.5651,19.050939)" xml:space="preserve" id="text1059-0" style="font-style:normal;font-weight:normal;font-size:5.64444px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect1061-3);fill:#000000;fill-opacity:1;stroke:none;"><tspan x="276.53125" y="55.982288"><tspan style="font-size:5.64444px">26</tspan></tspan></text>
+    <text xml:space="preserve" id="text1059-4" style="font-style:normal;font-weight:normal;font-size:5.64444px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect1061-4);fill:#000000;fill-opacity:1;stroke:none;" transform="translate(72.087103,15.966747)"><tspan x="276.53125" y="55.982288"><tspan style="shape-inside:url(#rect1061-4)">10</tspan></tspan></text>
+    <text style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect47-5-4);fill:#000000;fill-opacity:1;stroke:none;" id="text45-61-4" xml:space="preserve" transform="translate(0.77145842,70.078325)"><tspan x="10" y="44.068818"><tspan>Input:</tspan></tspan></text>
+    <rect y="103.19715" x="62.039131" height="57.604603" width="427.43582" id="rect1152" style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+    <rect y="168.84045" x="210.7001" height="21.248709" width="91.35598" id="rect1154" style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/>
+    <text transform="translate(25.353809,4.6075945)" style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect1158);fill:#000000;fill-opacity:1;stroke:none;" id="text1156" xml:space="preserve"><tspan x="210.69922" y="178.20358"><tspan>Submit</tspan></tspan></text>
+    <text transform="translate(5.4506792,166.80134)" xml:space="preserve" id="text45-61-4-6" style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect47-5-4-7);fill:#000000;fill-opacity:1;stroke:none;"><tspan x="10" y="44.068818"><tspan>Result:</tspan></tspan></text>
+    <rect style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" id="rect1152-3" width="427.43582" height="57.604603" x="66.718353" y="199.92018"/>
+  </g>
+</svg>
