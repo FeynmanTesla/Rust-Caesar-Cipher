@@ -11,6 +11,9 @@ static ALPHABET_UPPER: [char; 26] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'
 static LETTERS_IN_ALPHABET: i8 = 26;
 static PASSABLE_PROPORTION_WORDS_IN_DICT: f32 = 0.9;
 
+/// Find the output of the program (in the form of a string) for a given input.
+/// Used by both the GUI and when getting output for the CLI.
+/// Take params describing whether encrypting, choosing shift size automatically, the shift size (used if manual selection), and text input.
 pub(crate) fn find_output(encrypting: bool, shift_size_automatic: bool, shift_size: f64, input: String) -> String {
     if encrypting {
         if shift_size_automatic {
@@ -27,11 +30,17 @@ pub(crate) fn find_output(encrypting: bool, shift_size_automatic: bool, shift_si
     }
 }
 
+/// Encrypt plaintext into ciphertext.
+/// Parameters are the plaintext and shift size.
+/// Returns a String with the ciphertext.
 fn encrypt(shift_value: i8, plaintext: &String) -> String {
     let ciphertext: String = shift_text(plaintext, shift_value, true).unwrap();
     format!("For the plaintext \"{}\", given a shift of {}, the Caesar ciphertext is \"{}\".", plaintext, shift_value, ciphertext)
 }
 
+/// Decrypt ciphertext into plaintext.
+/// Parameters are the ciphertext and shift size.
+/// Returns a String with the plaintext.
 fn decrypt(shift_value: Option<i8>, ciphertext: &String) -> String {
     match shift_value {
         None => decrypt(Some(gen_shift()), ciphertext),
@@ -42,11 +51,18 @@ fn decrypt(shift_value: Option<i8>, ciphertext: &String) -> String {
     }
 }
 
+/// Use a random number generator to generate a shift size to be applied.
+/// Return the shift size as an i8.
 fn gen_shift() -> i8 {
     let mut rng = rand::thread_rng();
     rng.gen_range(1, LETTERS_IN_ALPHABET - 1)
 }
 
+/// Decrypt ciphertext into plaintext when the shift size is unknown.
+/// Try all possible shift sizes, matching the words in results to a dictionary.
+/// If enough match words then use that shift size and return the resulting plaintext. Otherwise, return a String explaining that the plaintext couldn't be found.
+/// The sole parameter is the ciphertext.
+/// Return the result in a String object.
 fn auto_decrypt(ciphertext: &String) -> String {
     let dictionary_words: Vec<String> = get_dictionary_words();
     for shift in 1..LETTERS_IN_ALPHABET {
@@ -60,6 +76,12 @@ fn auto_decrypt(ciphertext: &String) -> String {
     format!("Failed to automatically decrypt the ciphertext \"{}\".", ciphertext)
 }
 
+/// Try to decrypt ciphertext into plaintext when the shift size is unknown.
+/// Use a possible shift size and apply it to the ciphertext to find the possible plaintext.
+/// If enough of the words in the resulting plaintext matches a dictionary, assume it's correct.
+/// If enough match, return the resulting String object inside a Some() wrapper; else, return None.
+/// Parameters are the shift size, ciphertext, and a vector holding the dictionary words.
+/// Return an Option<String> with Some(String) if enough plaintext words were in the dictionary, otherwise return None.
 fn try_decrypt(shift_value: i8, ciphertext: &String, dictionary_words: &Vec<String>) -> Option<String> {
     let possible_plaintext: String = shift_text(ciphertext, shift_value, false).unwrap();
 
@@ -80,12 +102,18 @@ fn try_decrypt(shift_value: i8, ciphertext: &String, dictionary_words: &Vec<Stri
     None
 }
 
+/// Get a vector of the words in the dictionary file.
 fn get_dictionary_words() -> Vec<String> {
     let file = File::open("src/front_end/state/logic/dictionary.txt").expect("no such file");
     let buf = BufReader::new(file);
     buf.lines().map(|l| l.expect("Could not parse line")).collect()
 }
 
+/// Apply a Caesar shift to given text and return the result.
+/// Can be applied "right or left" to encrypt plaintext into ciphertext or vice versa.
+/// Return as an option<String> since the shift_word() method applied to each word can fail and so returns an option.
+/// Given parameters of the start text, shift size, and if encrypting (not decrypting).
+/// Return Some(String) if each word could be shifted, otherwse None.
 fn shift_text(start: &String, shift: i8, encrypting: bool) -> Option<String> {
     let mut words: Vec<String> = start.split(" ").map(|s: &str| String::from(s)).collect();
     for i in 0..words.len() {
@@ -102,6 +130,11 @@ fn shift_text(start: &String, shift: i8, encrypting: bool) -> Option<String> {
     Some(words.join(" "))
 }
 
+/// Shift a word with a given shift size and direction (right/encrypt or left/decrypt).
+/// Shift each character in the word in turn and then return Some(String) of the result if it works.
+/// Shifting a character is done in shift_char(), which can fail: returning Option<char>.
+/// Parameters are the starting string, shift size, and direction (right/encrypt or left/decrypt).
+/// Return Some(String) from the concatenated shifted chars or None if a char shift fails.
 fn shift_word(start: &String, shift: i8, right: bool) -> Option<String> {
     let mut chars: Vec<char> = vec![];
     for c in start.chars() {
@@ -118,6 +151,13 @@ fn shift_word(start: &String, shift: i8, right: bool) -> Option<String> {
     Some(chars.into_iter().collect())
 }
 
+/// Shift a character by a given amount and direction (right/encrypt or left/decrypt).
+/// Look for the character in a fixed-size array holding the alphabet then move to an index according to the shift size and index, then return that character.
+/// Since the search for the character in the alphabet array can fail - returning Option<usize>, the method can fail so returns Option<char>.
+/// If the index of the character can be found, find the index of the char after the shift and return it wrapped in a Some().
+/// If the index of the input character can't be found, return None.
+/// Parameters are the starting character, shift size, and direction (right/encrypt or left/decrypt).
+/// Return Some(char) from the shifted char if the initial index match works or None it fails.
 fn shift_char(start: &char, mut shift: i8, right: bool) -> Option<char> {
     let alphabet: &[char; 26];
 

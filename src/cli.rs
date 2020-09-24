@@ -2,6 +2,8 @@ use std::env;
 
 use crate::front_end::state::logic::find_output;
 
+/// Method to run the program from CLI arguments.
+/// Parse the given arguments into values to be used by the find_output() method in the logic module to find output, then calling it and printing the result.
 pub(crate) fn run_cli() {
     let args: Vec<String> = env::args().collect();
 
@@ -21,6 +23,7 @@ pub(crate) fn run_cli() {
     println!("{}", res);
 }
 
+/// If the user gives arguments not of the correct format, print usage feedback.
 pub(crate) fn print_usage() {
     println!("Usage: <\"gui\" or \"cli\"> <If using CLI: \"E\" for encrypt, \"D\" for decrypt> <If using CLI: shift size or \"A\" for a random number> <If using CLI: src text>.");
 }

@@ -31,11 +31,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0680f3c2-d817-4c61-bf96-de13c827fafe" name="Default Changelist" comment="separated state and logic into 2 separate source files within the state module">
-      <change afterPath="$PROJECT_DIR$/src/cli.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dictionary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/front_end/state/logic/dictionary.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cli.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/front_end/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/front_end/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/front_end/state/logic.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/front_end/state/logic/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front_end/state/logic/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/front_end/state/logic/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/front_end/state/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/front_end/state/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
@@ -80,7 +79,7 @@
       <recent name="$PROJECT_DIR$/src/state" />
     </key>
   </component>
-  <component name="RunManager" selected="Cargo.CLI (1)">
+  <component name="RunManager" selected="Cargo.GUI">
     <configuration name="CLI (1)" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package caesar_cipher --bin caesar_cipher cli D 1 Ifmmp xpsme" />
@@ -280,25 +279,25 @@
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="382" y="423" width="309" height="489" key="EnvironmentVariablesDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600962502781" />
-    <state width="2514" height="374" key="GridCell.Tab.0.bottom" timestamp="1600963121267">
+    <state width="2514" height="374" key="GridCell.Tab.0.bottom" timestamp="1600966419192">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="374" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600963121267" />
+    <state width="2514" height="374" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600966419192" />
     <state width="2560" height="988" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881859" />
-    <state width="2514" height="374" key="GridCell.Tab.0.center" timestamp="1600963121267">
+    <state width="2514" height="374" key="GridCell.Tab.0.center" timestamp="1600966419192">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="374" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600963121267" />
+    <state width="2514" height="374" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600966419192" />
     <state width="2560" height="988" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881859" />
-    <state width="2514" height="374" key="GridCell.Tab.0.left" timestamp="1600963121267">
+    <state width="2514" height="374" key="GridCell.Tab.0.left" timestamp="1600966419192">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="374" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600963121267" />
+    <state width="2514" height="374" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600966419192" />
     <state width="2560" height="988" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881858" />
-    <state width="2514" height="374" key="GridCell.Tab.0.right" timestamp="1600963121267">
+    <state width="2514" height="374" key="GridCell.Tab.0.right" timestamp="1600966419192">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="374" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600963121267" />
+    <state width="2514" height="374" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600966419192" />
     <state width="2560" height="988" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881859" />
     <state width="2514" height="340" key="GridCell.Tab.1.bottom" timestamp="1600962519289">
       <screen x="0" y="27" width="2560" height="1053" />

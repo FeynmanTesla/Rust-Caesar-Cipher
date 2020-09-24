@@ -2,6 +2,8 @@ use druid::{Data, Lens};
 
 pub(crate) mod logic;
 
+/// The struct modelling the state of the app when running the GUI.
+/// Contains info on whether the user is encrypting or decrypting, the shift size, if the shift size is being set manually or automatically from a random number, the input, and the output.
 #[derive(Clone, Data, Lens)]
 pub(crate) struct AppState {
     encrypting: bool,
@@ -11,7 +13,8 @@ pub(crate) struct AppState {
     output: String,
 }
 
-pub(crate) fn get_initial_state() -> AppState {
+/// Method to generate the initial state of the app when running the GUI.
+pub(crate) fn gen_initial_state() -> AppState {
     AppState {
         encrypting: false,
         shift_size_automatic: false,
@@ -21,6 +24,7 @@ pub(crate) fn get_initial_state() -> AppState {
     }
 }
 
+/// Getters and setters for the AppState struct.
 impl AppState {
     pub(crate) fn get_encrypting(&self) -> bool {
         self.encrypting

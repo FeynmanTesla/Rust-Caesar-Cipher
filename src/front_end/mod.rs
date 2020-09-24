@@ -10,16 +10,21 @@ static INPUT_BOX_HEIGHT: f64 = 400.0;
 
 // TODO: improve layout, spacing, and padding in frontend
 
+/// Controller function for running the frontend.
+/// Create and launch a window containing the Widget that houses all elements of the UI.
+/// The Widget is created in ui_builder().
 pub(crate) fn run_front_end() -> Result<(), PlatformError> {
     let main_window = WindowDesc::new(ui_builder).title("Rust Caesar Cipher").window_size((WINDOW_WIDTH, WINDOW_HEIGHT));
 
-    let app_state: state::AppState = state::get_initial_state();
+    let app_state: state::AppState = state::gen_initial_state();
 
     AppLauncher::with_window(main_window)
         .use_simple_logger()
         .launch(app_state)
 }
 
+/// Create the Widget that houses all elements of the UI.
+/// Called in the run_front_end() method to render the GUI.
 fn ui_builder() -> impl Widget<state::AppState> {
     let title: Label<state::AppState> = Label::new("Rust Caesar Cipher").with_text_size(40.0);
     let first_row: Flex<state::AppState> = Flex::row().with_child(title).with_spacer(20.0);

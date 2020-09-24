@@ -3,9 +3,11 @@ use std::env;
 mod front_end;
 mod cli;
 
-// TODO: doc comments
 // TODO: make unit tests
 
+/// Main method and entry point into the program.
+/// Examine the first argument, corresponding to whether to use the CLI or GUI.
+/// Depending on which interface is chosen, run the frontend or perform the described CLI operation from arguments from the user.
 fn main() {
     let args: Vec<String> = env::args().collect();
 
