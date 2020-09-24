@@ -30,13 +30,15 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0680f3c2-d817-4c61-bf96-de13c827fafe" name="Default Changelist" comment="separated state and logic into 2 separate source files within the state module">
+    <list default="true" id="0680f3c2-d817-4c61-bf96-de13c827fafe" name="Default Changelist" comment="added doc comments">
+      <change afterPath="$PROJECT_DIR$/src/front_end/state/logic/dictionary.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/front_end/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/front_end/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/front_end/state/logic/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/front_end/state/logic/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/front_end/state/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/front_end/state/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,15 +76,45 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/front_end/state/logic" />
+      <recent name="$PROJECT_DIR$/src/front_end/state/logic/dictionary" />
       <recent name="$PROJECT_DIR$/src/front_end/state" />
       <recent name="$PROJECT_DIR$/src/front_end" />
       <recent name="$PROJECT_DIR$/src/state" />
     </key>
   </component>
   <component name="RunManager" selected="Cargo.GUI">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CLI (1)" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package caesar_cipher --bin caesar_cipher cli D 1 Ifmmp xpsme" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CLI (2)" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="run --package caesar_cipher --bin caesar_cipher cli E A Hello world" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CLI (3)" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="run --package caesar_cipher --bin caesar_cipher cli D A Zwddg ogjdv" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
@@ -116,15 +148,12 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Cargo.GUI" />
       <item itemvalue="Cargo.CLI" />
       <item itemvalue="Cargo.CLI (1)" />
+      <item itemvalue="Cargo.CLI (2)" />
+      <item itemvalue="Cargo.CLI (3)" />
     </list>
   </component>
   <component name="RustProjectSettings">
@@ -143,6 +172,7 @@
       <workItem from="1595796614388" duration="1199000" />
       <workItem from="1600898253623" duration="3066000" />
       <workItem from="1600956716416" duration="2355000" />
+      <workItem from="1600975386375" duration="3012000" />
     </task>
     <task id="LOCAL-00001" summary="marked up some errors to fix">
       <created>1595770727572</created>
@@ -235,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600900910204</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="added doc comments">
+      <created>1600966585593</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1600966585593</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -264,13 +301,14 @@
     <MESSAGE value="made input text box bigger" />
     <MESSAGE value="separated frontend and state and logic into 2 separate modules" />
     <MESSAGE value="separated state and logic into 2 separate source files within the state module" />
-    <option name="LAST_COMMIT_MESSAGE" value="separated state and logic into 2 separate source files within the state module" />
+    <MESSAGE value="added doc comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="added doc comments" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2847" y="272" width="2254" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600963134777">
+    <state x="2847" y="272" width="2254" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600977399653">
       <screen x="2560" y="0" width="2560" height="1080" />
     </state>
-    <state x="2847" y="272" width="2254" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600963134777" />
+    <state x="2847" y="272" width="2254" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600977399653" />
     <state x="1013" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600900650070">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
@@ -279,25 +317,25 @@
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="382" y="423" width="309" height="489" key="EnvironmentVariablesDialog/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600962502781" />
-    <state width="2514" height="374" key="GridCell.Tab.0.bottom" timestamp="1600966419192">
+    <state width="2514" height="374" key="GridCell.Tab.0.bottom" timestamp="1600977440142">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="374" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600966419192" />
+    <state width="2514" height="374" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600977440142" />
     <state width="2560" height="988" key="GridCell.Tab.0.bottom/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881859" />
-    <state width="2514" height="374" key="GridCell.Tab.0.center" timestamp="1600966419192">
+    <state width="2514" height="374" key="GridCell.Tab.0.center" timestamp="1600977440142">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="374" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600966419192" />
+    <state width="2514" height="374" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600977440142" />
     <state width="2560" height="988" key="GridCell.Tab.0.center/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881859" />
-    <state width="2514" height="374" key="GridCell.Tab.0.left" timestamp="1600966419192">
+    <state width="2514" height="374" key="GridCell.Tab.0.left" timestamp="1600977440142">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="374" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600966419192" />
+    <state width="2514" height="374" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600977440142" />
     <state width="2560" height="988" key="GridCell.Tab.0.left/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881858" />
-    <state width="2514" height="374" key="GridCell.Tab.0.right" timestamp="1600966419192">
+    <state width="2514" height="374" key="GridCell.Tab.0.right" timestamp="1600977440142">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="374" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600966419192" />
+    <state width="2514" height="374" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600977440142" />
     <state width="2560" height="988" key="GridCell.Tab.0.right/0.27.2560.1053/2560.0.2560.1080@2560.0.2560.1080" timestamp="1600847881859" />
     <state width="2514" height="340" key="GridCell.Tab.1.bottom" timestamp="1600962519289">
       <screen x="0" y="27" width="2560" height="1053" />
@@ -315,10 +353,10 @@
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state width="2514" height="340" key="GridCell.Tab.1.right/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600962519289" />
-    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600900912717">
+    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1600966586510">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600900912717" />
+    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.2560.1053/2560.0.2560.1080@0.27.2560.1053" timestamp="1600966586510" />
     <state x="971" y="162" width="618" height="783" key="find.popup" timestamp="1600962587697">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>

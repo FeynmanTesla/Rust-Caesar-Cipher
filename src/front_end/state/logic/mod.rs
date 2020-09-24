@@ -1,8 +1,10 @@
 use std::borrow::Borrow;
-use std::fs::File;
-use std::io::{BufRead, BufReader};
 
 use rand::Rng;
+
+mod dictionary;
+
+//TODO: fix bug that auto decryption works fine without punctuation but doesn't with (for example) full stops at the end of words.
 
 static ALPHABET_LOWER: [char; 26] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -64,9 +66,8 @@ fn gen_shift() -> i8 {
 /// The sole parameter is the ciphertext.
 /// Return the result in a String object.
 fn auto_decrypt(ciphertext: &String) -> String {
-    let dictionary_words: Vec<String> = get_dictionary_words();
     for shift in 1..LETTERS_IN_ALPHABET {
-        match try_decrypt(shift, ciphertext, &dictionary_words) {
+        match try_decrypt(shift, ciphertext, &dictionary::DICTIONARY_ARRAY) {
             Some(result) => {
                 return result;
             }
@@ -82,14 +83,14 @@ fn auto_decrypt(ciphertext: &String) -> String {
 /// If enough match, return the resulting String object inside a Some() wrapper; else, return None.
 /// Parameters are the shift size, ciphertext, and a vector holding the dictionary words.
 /// Return an Option<String> with Some(String) if enough plaintext words were in the dictionary, otherwise return None.
-fn try_decrypt(shift_value: i8, ciphertext: &String, dictionary_words: &Vec<String>) -> Option<String> {
+fn try_decrypt(shift_value: i8, ciphertext: &String, dictionary_words: &[&'static str; 370104]) -> Option<String> {
     let possible_plaintext: String = shift_text(ciphertext, shift_value, false).unwrap();
 
     let words: Vec<String> = possible_plaintext.split(" ").map(|s: &str| String::from(s)).collect();
     let mut words_in_dict: i8 = 0;
 
     for word in &words {
-        if dictionary_words.contains(&word.to_lowercase()) { words_in_dict += 1; }
+        if dictionary_words.contains(&&**&word.to_lowercase()) { words_in_dict += 1; }
     }
 
     let is_passable_text: bool = words_in_dict as f32 / words.len() as f32 >= PASSABLE_PROPORTION_WORDS_IN_DICT;
@@ -100,13 +101,6 @@ fn try_decrypt(shift_value: i8, ciphertext: &String, dictionary_words: &Vec<Stri
     }
 
     None
-}
-
-/// Get a vector of the words in the dictionary file.
-fn get_dictionary_words() -> Vec<String> {
-    let file = File::open("src/front_end/state/logic/dictionary.txt").expect("no such file");
-    let buf = BufReader::new(file);
-    buf.lines().map(|l| l.expect("Could not parse line")).collect()
 }
 
 /// Apply a Caesar shift to given text and return the result.

@@ -1,7 +1,7 @@
 [package]
-name = "caesar_cipher"
+name = "rust_caesar_cipher"
 version = "0.0.1"
-authors = ["Tom https://github.com/FeynmanTesla"]
+authors = ["Tom Hardern - https://github.com/FeynmanTesla"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -9,3 +9,6 @@ edition = "2018"
 [dependencies]
 rand = "0.7.3"
 druid = { git = "https://github.com/linebender/druid.git" }
+
+[profile.release]
+opt-level = 3

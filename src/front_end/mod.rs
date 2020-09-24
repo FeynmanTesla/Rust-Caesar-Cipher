@@ -46,7 +46,7 @@ fn ui_builder() -> impl Widget<state::AppState> {
     let shift_mode_row: Flex<state::AppState> = Flex::row().with_child(Flex::column().with_child(Flex::row().with_child(shift_mode_title_label).with_spacer(20.0)).with_child(Flex::row().with_child(shift_mode_value_label).with_child(change_shift_mode_button).with_spacer(20.0))).with_spacer(20.0);
 
     let shift_size_title_label: Label<state::AppState> = Label::new("Shift size:").with_text_size(20.0);
-    let shift_size_slider = Slider::new().with_range(1.0, 26.0).lens(state::AppState::shift_size);
+    let shift_size_slider = Slider::new().with_range(1.0, 25.0).lens(state::AppState::shift_size);
     let shift_size_value_label: Label<state::AppState> = Label::new(|state: &state::AppState, _env: &_| format!("{}", state.get_shift_size() as i64)).with_text_size(15.0);
     let shift_size_row: Flex<state::AppState> = Flex::row().with_child(Flex::column().with_child(Flex::row().with_child(shift_size_title_label).with_spacer(20.0)).with_child(Flex::row().with_child(shift_size_slider).with_child(shift_size_value_label).with_spacer(20.0))).with_spacer(20.0);
 

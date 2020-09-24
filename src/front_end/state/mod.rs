@@ -17,7 +17,7 @@ pub(crate) struct AppState {
 pub(crate) fn gen_initial_state() -> AppState {
     AppState {
         encrypting: false,
-        shift_size_automatic: false,
+        shift_size_automatic: true,
         shift_size: 10.0,
         input: "".to_string(),
         output: "".to_string(),
