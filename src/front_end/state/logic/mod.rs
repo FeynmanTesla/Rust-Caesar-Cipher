@@ -81,7 +81,7 @@ fn try_decrypt(shift_value: i8, ciphertext: &String, dictionary_words: &Vec<Stri
 }
 
 fn get_dictionary_words() -> Vec<String> {
-    let file = File::open("src/dictionary.txt").expect("no such file");
+    let file = File::open("src/front_end/state/logic/dictionary.txt").expect("no such file");
     let buf = BufReader::new(file);
     buf.lines().map(|l| l.expect("Could not parse line")).collect()
 }

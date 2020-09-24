@@ -1,6 +1,6 @@
 use druid::{Data, Lens};
 
-mod logic;
+pub(crate) mod logic;
 
 #[derive(Clone, Data, Lens)]
 pub(crate) struct AppState {

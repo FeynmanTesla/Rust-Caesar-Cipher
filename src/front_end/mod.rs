@@ -1,7 +1,7 @@
 use druid::{AppLauncher, PlatformError, Widget, WidgetExt, WindowDesc};
 use druid::widget::{Button, Click, ControllerHost, Flex, Label, Slider, TextBox};
 
-mod state;
+pub(crate) mod state;
 
 static WINDOW_WIDTH: f64 = 1500.0;
 static WINDOW_HEIGHT: f64 = 1500.0;
