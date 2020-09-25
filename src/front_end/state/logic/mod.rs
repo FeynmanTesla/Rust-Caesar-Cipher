@@ -1,10 +1,9 @@
 use std::borrow::Borrow;
 
 use rand::Rng;
+use regex::Regex;
 
 mod dictionary;
-
-//TODO: fix bug that auto decryption works fine without punctuation but doesn't with (for example) full stops at the end of words.
 
 static ALPHABET_LOWER: [char; 26] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -89,8 +88,26 @@ fn try_decrypt(shift_value: i8, ciphertext: &String, dictionary_words: &[&'stati
     let words: Vec<String> = possible_plaintext.split(" ").map(|s: &str| String::from(s)).collect();
     let mut words_in_dict: i8 = 0;
 
-    for word in &words {
-        if dictionary_words.contains(&&**&word.to_lowercase()) { words_in_dict += 1; }
+    for mixed_case_word in &words {
+        let word: String = String::from(mixed_case_word.to_lowercase());
+        if dictionary_words.contains(&&**&word) {
+            words_in_dict += 1;
+            continue;
+        } else {
+            if word.contains("'") {
+                let tokens: Vec<&str> = word.split("'").collect();
+                if dictionary_words.contains(&&*tokens[0]) {
+                    words_in_dict += 1;
+                    continue;
+                }
+            }
+
+            let re = Regex::new(r"[^a-z^A-Z]").unwrap();
+            let result = String::from(re.replace_all(&*word, ""));
+            if dictionary_words.contains(&&*result.to_lowercase()) {
+                words_in_dict += 1;
+            }
+        }
     }
 
     let is_passable_text: bool = words_in_dict as f32 / words.len() as f32 >= PASSABLE_PROPORTION_WORDS_IN_DICT;

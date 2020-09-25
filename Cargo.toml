@@ -9,6 +9,7 @@ edition = "2018"
 [dependencies]
 rand = "0.7.3"
 druid = { git = "https://github.com/linebender/druid.git" }
+regex = "1.3.9"
 
 [profile.release]
 opt-level = 3
